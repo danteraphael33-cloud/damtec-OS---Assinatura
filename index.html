@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 10px; /* Reduced padding */
             position: relative; /* Necessário para o pseudo-elemento */
         }
 
@@ -38,13 +38,13 @@
 
         .container {
             background-color: white;
-            padding: 30px;
+            padding: 20px; /* Reduced padding */
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             max-width: 900px;
             width: 100%;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-top: 10px; /* Reduced margin */
+            margin-bottom: 10px; /* Reduced margin */
             position: relative; /* Para garantir que o container fique acima da marca d'água */
             z-index: 1;
         }
@@ -82,36 +82,43 @@
                 opacity: 0.1; /* Efeito de marca d'água */
                 z-index: -1; /* Garante que fique atrás do conteúdo */
             }
+            /* Adjustments for print to make signature and photos fit better */
+            #signatureCanvas {
+                height: 100px !important; /* Smaller height for print */
+            }
+            #photoPreviews img {
+                height: 80px !important; /* Smaller height for print */
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Header with Damtec Logo -->
-        <header class="flex justify-between items-center pb-6 border-b border-gray-200 mb-6">
-            <img src="https://i.imgur.com/Z4r5gYI.jpeg" alt="Damtec Logo" class="h-24 rounded-lg">
+        <header class="flex justify-between items-center pb-4 border-b border-gray-200 mb-4">
+            <img src="https://i.imgur.com/Z4r5gYI.jpeg" alt="Damtec Logo" class="h-20 rounded-lg">
             <div>
-                <h1 class="text-3xl font-bold text-gray-800">Ordem de Serviço</h1>
-                <div class="mt-2">
-                    <label for="orderNumber" class="block text-sm font-medium text-gray-700 mb-1">Número da Ordem</label>
-                    <input type="text" id="orderNumber" name="orderNumber" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <h1 class="text-2xl font-bold text-gray-800">Ordem de Serviço</h1>
+                <div class="mt-1">
+                    <label for="orderNumber" class="block text-sm font-medium text-gray-700 mb-0.5">Número da Ordem</label>
+                    <input type="text" id="orderNumber" name="orderNumber" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
             </div>
         </header>
 
         <!-- O.S. Form -->
-        <form id="osForm" class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form id="osForm" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <!-- Client Data -->
-                <div class="p-4 bg-blue-50 rounded-lg shadow-sm">
-                    <h2 class="text-xl font-semibold text-blue-700 mb-4">Dados do Cliente</h2>
+                <div class="p-2 bg-blue-50 rounded-lg shadow-sm">
+                    <h2 class="text-lg font-semibold text-blue-700 mb-3">Dados do Cliente</h2>
                     <div>
-                        <label for="companyName" class="block text-sm font-medium text-gray-700 mb-1">Nome da Empresa</label>
-                        <input type="text" id="companyName" name="companyName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" value="Condominio Zyz by Kallas Centro">
+                        <label for="companyName" class="block text-sm font-medium text-gray-700 mb-0.5">Nome da Empresa</label>
+                        <input type="text" id="companyName" name="companyName" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" value="Condominio Zyz by Kallas Centro">
                     </div>
-                    <div class="mt-4">
-                        <label for="clientName" class="block text-sm font-medium text-gray-700 mb-1">Nome / Função</label>
-                        <select id="clientName" name="clientName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    <div class="mt-2">
+                        <label for="clientName" class="block text-sm font-medium text-gray-700 mb-0.5">Nome / Função</label>
+                        <select id="clientName" name="clientName" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
                             <option value="">Selecione um nome/função</option>
                             <option value="Fabio Santiago">Fabio Santiago</option>
                             <option value="Rodrigo">Rodrigo</option>
@@ -121,28 +128,28 @@
                             <option value="Ariane">Ariane</option>
                         </select>
                     </div>
-                    <div class="mt-4">
-                        <label for="clientDoc" class="block text-sm font-medium text-gray-700 mb-1">CPF/CNPJ</label>
-                        <input type="text" id="clientDoc" name="clientDoc" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <div class="mt-2">
+                        <label for="clientDoc" class="block text-sm font-medium text-gray-700 mb-0.5">CPF/CNPJ</label>
+                        <input type="text" id="clientDoc" name="clientDoc" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="mt-4">
-                        <label for="clientAddress" class="block text-sm font-medium text-gray-700 mb-1">Endereço</label>
-                        <input type="text" id="clientAddress" name="clientAddress" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" value="Rua Florencio de Abreu 978 , Centro - SP">
+                    <div class="mt-2">
+                        <label for="clientAddress" class="block text-sm font-medium text-gray-700 mb-0.5">Endereço</label>
+                        <input type="text" id="clientAddress" name="clientAddress" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" value="Rua Florencio de Abreu 978 , Centro - SP">
                     </div>
-                    <div class="mt-4">
-                        <label for="serviceDescription" class="block text-sm font-medium text-gray-700 mb-1">Descrição do Serviço</label>
-                        <textarea id="serviceDescription" name="serviceDescription" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    <div class="mt-2">
+                        <label for="serviceDescription" class="block text-sm font-medium text-gray-700 mb-0.5">Descrição do Serviço</label>
+                        <textarea id="serviceDescription" name="serviceDescription" rows="3" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
                     </div>
                     <!-- Telefone e Email removidos -->
                 </div>
 
                 <!-- Service Information -->
-                <div class="p-4 bg-yellow-50 rounded-lg shadow-sm">
-                    <h2 class="text-xl font-semibold text-yellow-700 mb-4">Informações do Serviço</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-2 bg-yellow-50 rounded-lg shadow-sm">
+                    <h2 class="text-lg font-semibold text-yellow-700 mb-3">Informações do Serviço</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div>
-                            <label for="requesterName" class="block text-sm font-medium text-gray-700 mb-1">Nome do Solicitante</label>
-                            <select id="requesterName" name="requesterName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
+                            <label for="requesterName" class="block text-sm font-medium text-gray-700 mb-0.5">Nome do Solicitante</label>
+                            <select id="requesterName" name="requesterName" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
                                 <option value="">Selecione um nome</option>
                                 <option value="Fabio Santiago">Fabio Santiago</option>
                                 <option value="Rodrigo">Rodrigo</option>
@@ -153,56 +160,55 @@
                             </select>
                         </div>
                         <div>
-                            <label for="osDate" class="block text-sm font-medium text-gray-700 mb-1">Data de Atendimento da O.S.</label>
-                            <input type="date" id="osDate" name="osDate" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500" value="<?php echo date('Y-m-d'); ?>">
+                            <label for="osDate" class="block text-sm font-medium text-gray-700 mb-0.5">Data de Atendimento da O.S.</label>
+                            <input type="date" id="osDate" name="osDate" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500" value="<?php echo date('Y-m-d'); ?>">
                         </div>
-                        <div>
-                            <label for="responsibleTech" class="block text-sm font-medium text-gray-700 mb-1">Técnico Responsável</label>
-                            <input type="text" id="responsibleTech" name="responsibleTech" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500" value="Dante Reis">
+                        <div class="mt-2">
+                            <label for="responsibleTech" class="block text-sm font-medium text-gray-700 mb-0.5">Técnico Responsável</label>
+                            <input type="text" id="responsibleTech" name="responsibleTech" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500" value="Dante Reis">
                         </div>
                     </div>
-                    <!-- Descrição do Serviço removida daqui -->
-                    <div class="mt-4">
-                        <label for="solutionFound" class="block text-sm font-medium text-gray-700 mb-1">Solução</label>
-                        <textarea id="solutionFound" name="solutionFound" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                    <div class="mt-2">
+                        <label for="solutionFound" class="block text-sm font-medium text-gray-700 mb-0.5">Solução</label>
+                        <textarea id="solutionFound" name="solutionFound" rows="3" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500"></textarea>
                     </div>
-                    <div class="mt-4">
-                        <label for="partsUsed" class="block text-sm font-medium text-gray-700 mb-1">Material Utilizado</label>
-                        <textarea id="partsUsed" name="partsUsed" rows="1" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                    <div class="mt-2">
+                        <label for="partsUsed" class="block text-sm font-medium text-gray-700 mb-0.5">Material Utilizado</label>
+                        <textarea id="partsUsed" name="partsUsed" rows="1" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500"></textarea>
                     </div>
-                    <div class="mt-4">
-                        <label for="hoursWorked" class="block text-sm font-medium text-gray-700 mb-1">Horas Trabalhadas</label>
-                        <input type="number" id="hoursWorked" name="hoursWorked" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
+                    <div class="mt-2">
+                        <label for="hoursWorked" class="block text-sm font-medium text-gray-700 mb-0.5">Horas Trabalhadas</label>
+                        <input type="number" id="hoursWorked" name="hoursWorked" class="mt-0.5 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
                     </div>
                 </div>
             </div>
 
             <!-- Signature Section -->
-            <div class="p-4 bg-indigo-50 rounded-lg shadow-sm">
-                <h2 class="text-xl font-semibold text-indigo-700 mb-4">Assinatura do Cliente</h2>
-                <canvas id="signatureCanvas" class="border border-gray-300 rounded-md bg-white w-full h-40"></canvas>
-                <button type="button" id="clearSignature" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out no-print">
+            <div class="p-2 bg-indigo-50 rounded-lg shadow-sm">
+                <h2 class="text-lg font-semibold text-indigo-700 mb-3">Assinatura do Cliente</h2>
+                <canvas id="signatureCanvas" class="border border-gray-300 rounded-md bg-white w-full h-32"></canvas>
+                <button type="button" id="clearSignature" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1.5 px-3 rounded-full shadow-md transition duration-300 ease-in-out no-print">
                     Limpar Assinatura
                 </button>
             </div>
 
             <!-- Photo Upload Section -->
-            <div class="p-4 bg-gray-50 rounded-lg shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-700 mb-4">Upload de Fotos</h2>
+            <div class="p-2 bg-gray-50 rounded-lg shadow-sm">
+                <h2 class="text-lg font-semibold text-gray-700 mb-3">Upload de Fotos</h2>
                 <input type="file" id="photoUpload" multiple accept="image/*" class="block w-full text-sm text-gray-500
-                    file:mr-4 file:py-2 file:px-4
+                    file:mr-2 file:py-1.5 file:px-3
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
                     file:bg-blue-50 file:text-blue-700
                     hover:file:bg-blue-100 no-print">
-                <div id="photoPreviews" class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div id="photoPreviews" class="mt-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                     <!-- Image previews will be inserted here -->
                 </div>
             </div>
 
             <!-- Print Button -->
-            <div class="flex justify-center mt-8 no-print">
-                <button type="button" id="printButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <div class="flex justify-center mt-6 no-print">
+                <button type="button" id="printButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-5 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                     Imprimir / Salvar como PDF
                 </button>
             </div>
@@ -361,13 +367,13 @@
                                 const img = document.createElement('img');
                                 img.src = e.target.result;
                                 img.alt = 'Preview da foto';
-                                img.className = 'w-full h-32 object-cover rounded-lg shadow-md';
+                                img.className = 'w-full h-24 object-cover rounded-lg shadow-md'; /* Reduced height */
 
                                 // Adiciona um campo de legenda para cada imagem
                                 const captionInput = document.createElement('input');
                                 captionInput.type = 'text';
                                 captionInput.placeholder = 'Legenda da foto (opcional)';
-                                captionInput.className = 'mt-2 block w-full p-1 text-sm border border-gray-300 rounded-md';
+                                captionInput.className = 'mt-1 block w-full p-1 text-sm border border-gray-300 rounded-md'; /* Reduced padding */
 
                                 imgContainer.appendChild(img);
                                 imgContainer.appendChild(captionInput);
